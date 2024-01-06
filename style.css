@@ -1,0 +1,304 @@
+*{
+  font-family:'Manalva' , sans-serif;
+
+}
+
+:root{
+    --main: #5871e0;
+    --black: #1f1236;
+    --sec: #8851ed;
+
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: rgb(189, 188, 186);
+    border-radius: 10px;
+    border:none;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color:black;
+    border-radius: 10px;
+  
+    /* border: 3px solid orange; */
+  }
+
+
+#background{
+    height:100vh;
+    width:100%;
+    position: absolute;
+    background-image: url('./immagini/background\ frankify.jpg');
+    filter: blur(5px);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+
+#sidebar{
+    width:300px;
+    height:95vh;
+    position:absolute;
+    left:-300px;
+    top:2.5%;
+    background-color:rgba(white,0.3);
+    border: 4px solid black;
+    box-shadow: 0px 0px 40px black;
+    border-radius:10px;
+    transition: all 0.5s;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    
+
+}
+
+#sidebar.open{
+    left: 30px;
+}
+
+.border-b-main{
+    border-bottom: solid 4px black;
+}
+
+
+
+
+.player {
+    width: 300px;
+    height: 500px;
+    background: transparent;
+    border-radius: 20px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 250px);
+    overflow: hidden;
+    box-shadow: 0px 0px 40px black, 0px 0px 50px white;
+    
+
+
+}
+
+.tc-main{
+    color: var(--main);
+
+}
+
+.tc-sec{
+    color: var (--sec);
+}
+
+.tc-white{
+    color:white;
+}
+
+.tc-black{
+    color: var(--black);
+
+
+}
+.pointer{
+    cursor: pointer;
+
+
+}
+
+.thumbnail{
+    width: 50px;
+    height:50px;
+    border-radius: 100%;
+    border:3px solid black;
+}
+
+.player .header{
+    height :50px;
+    background-color:black;
+
+}
+
+.player .display {
+    height: 300px;
+    background-color: transparent;
+
+    overflow:hidden;
+
+}
+
+.player .display img{
+    height : 250px;
+    width: 250px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.player .display img.active{
+    height:350px;
+    width:350px;
+    animation-name:play;
+    animation-duration:5s;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+
+
+
+}
+
+.player .commands {
+    height: 150px;
+    width: 300px;
+    background-color: black;
+
+}
+
+
+.track-card.active{
+
+    /* background-color:rgb(189, 188, 186); */
+    background:linear-gradient(to right ,rgba(255,255,255,0.9), rgba(120, 60, 197, 0.6));
+    font-weight:900;
+    
+    
+
+
+}
+
+.track-card .fa-pause-circle{
+    display:none;
+}
+
+.track-card.active .fa-play-circle{
+    display:none;
+}
+.track-card.active .fa-pause-circle{
+    display:block;
+}
+
+.track-card.active h5{
+    font-weight:900;
+
+}
+
+
+
+@keyframes play{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+/* sezione volume */
+
+#volume-btn{
+    cursor:pointer;
+    width:27px;
+    position:absolute;
+    bottom:150px;
+    right:5px;
+    font-size:1.5rem; 
+    transition:.2s;
+    color:var(--sec);
+    transform-origin:center bottom;
+}
+#volume-btn:hover{
+    color: black;
+    /* transform:scale(1.2) */
+}
+#volume-btn:hover>.volume-bar{
+    height:100px;
+    opacity:1;
+}
+.volume-bar{
+    background-color:rgba(217, 211, 224, 0.442);
+    border:1px solid black;
+    border-radius:10px;
+    opacity:0;
+    height:0px;
+    padding-top:6px;
+    overflow:hidden;
+    transition: .3s ease-out;
+}
+
+#volume-slider{
+    background-color:black;
+    height:85px;
+    width:4px;
+    margin: 0 auto;
+    border-radius:999px;
+
+}
+#volume-cursor{
+    position:relative;
+    height:60%;
+    background-color:white;
+    border-radius:999px;
+    transition:.1s;
+}
+#volume-cursor-handle{
+    content: '';
+    position:absolute;
+    width:10px;
+    height:10px;
+    background-color:black;
+    bottom:-5px;
+    left: calc(50% - 5px);
+    border-radius:50%;
+}
+
+#volume-icon{
+    color:black;
+}
+
+
+
+/* media queries */
+@media screen and (max-width: 1000px){
+
+    
+.player {
+    width: 300px;
+    height: 500px;
+    background: transparent;
+    border-radius: 20px;
+    position: absolute;
+    left:30px;
+    top: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 40px black, 0px 0px 50px white;
+    
+
+
+}
+
+    #sidebar{
+        width:300px;
+        height:100vh;
+        position:absolute;
+        left:-300px;
+        top:90%;
+        background-color:rgba(white,0.3);
+        border: 4px solid black;
+        box-shadow: 0px 0px 40px black;
+        border-radius:10px;
+        transition: all 0.5s;
+        overflow-y: scroll;
+        overflow-x:hidden;
+        
+    
+    }
+    
+    #sidebar.open{
+
+        left: 30px;
+    }
+
+
+}
